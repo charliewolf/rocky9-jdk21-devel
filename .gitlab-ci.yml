@@ -2,11 +2,12 @@ stages:
   - build
   - release
 
-build:
-  image: docker:20.10.16
-  stage: build
-  services:
+image: docker:20.10.16
+services:
     - docker:20.10.16-dind
+
+build:
+  stage: build
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   script:
